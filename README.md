@@ -1,4 +1,5 @@
-# Zenn Contents
+# @progfay/zenn
 
+* [✍️ Dashboard](https://zenn.dev/dashboard/deploys)
 * [✍️ How to use](https://zenn.dev/zenn/articles/zenn-cli-guide)
 * [✍️ Markdown guide](https://zenn.dev/zenn/articles/markdown-guide)
