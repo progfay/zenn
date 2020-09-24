@@ -3,7 +3,7 @@ title: "LaTeXでフラクタルを書いてみた"
 emoji: "🍣"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["latex"]
-published: false
+published: true
 ---
 
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
