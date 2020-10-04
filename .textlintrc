@@ -5,8 +5,6 @@
   "rules": {
     "preset-ja-spacing": true,
     "preset-ja-technical-writing": true,
-    "spellcheck-tech-word": true,
-    "ja-technical-writing/sentence-length": false,
-    "ja-technical-writing/ja-no-mixed-period": false
+    "spellcheck-tech-word": true
   }
 }
