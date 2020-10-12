@@ -6,7 +6,11 @@ topics: ["ISUCON"]
 published: false
 ---
 
+![thumbnail](https://storage.googleapis.com/zenn-user-upload/ngc2fn4xm2lik9gh281ers3czagl)
+
 この度、ISUCON10の運営に携わる機会を頂き、予選問題の作成を担当しました。作問の際に考えていたことや狙いなどを、記録として記事に残すこととします。
+
+Github: [isucon/isucon10-qualify](https://github.com/isucon/isucon10-qualify)
 
 ## 運営に携わることになった経緯
 
@@ -45,7 +49,7 @@ ISUCONのフロントエンド部分は動作の確認に用いられること�
 
 予選問題でのスコア計算式は以下の通りでした。
 
-```txt
+```
 スコア = (イスの購入件数 + 物件の資料請求件数) - 減点
 ```
 
