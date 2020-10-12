@@ -120,7 +120,7 @@ mysql> EXPLAIN SELECT * FROM estate ORDER BY rent ASC, id ASC LIMIT 20;
 
 ### Level 1 (300 ~ 599)
 
-次にボトルネックとなってくるのは、検索時などに出てくる`ORDER BY popularity DESC`です。これもINDEXを貼れば解決されますが、落とし穴としてMySQL 5.7では降順INDEXがサポートされていません。そのため、MySQLのバージョンを上げたり、GENERATE COLUMNを用いてpopularityに-1を掛けたCOLUMNを用意したりと、テクニックを必要になります。実際に`CREATE INDEX popularity_id_idx on estate(popularity, id);`を貼っただけだと`Using filesort`となってしまいます。計測→チューニング→計測のループを回し、正しくチューニングが行えているのかの確認が大切であることを問うボトルネックでした。
+次にボトルネックとなってくるのは、検索時などに出てくる`ORDER BY popularity DESC`です。これもINDEXを貼れば解決されますが、落とし穴としてMySQL 5.7では降順INDEXがサポートされていません。そのため、MySQLのバージョンを上げたり、GENERATE COLUMNを用いてpopularityに-1を掛けたCOLUMNを用意したりと、テクニックが必要になります。実際に`CREATE INDEX popularity_id_idx on estate(popularity, id);`を貼っただけだと`Using filesort`となってしまいます。計測→チューニング→計測のループを回し、正しくチューニングが行えているのかの確認が大切であることを問うボトルネックでした。
 
 Level 1からは「なぞって検索」を行うシナリオが走り始め、ここもボトルネックとして表出していきます。各言語のソースコードから、明らかにN+1となっている箇所があるので、これを修正しましょう。
 
