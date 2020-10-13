@@ -3,7 +3,7 @@ title: "ISUCON10予選の作問を担当しました"
 emoji: "🪑"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["ISUCON"]
-published: false
+published: true
 ---
 
 ![thumbnail](https://storage.googleapis.com/zenn-user-upload/ngc2fn4xm2lik9gh281ers3czagl)
