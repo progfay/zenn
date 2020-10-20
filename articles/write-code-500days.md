@@ -3,7 +3,7 @@ title: "WriteCodeEveryDayを始めて500日が経過しました"
 emoji: "👨‍💻"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["WriteCodeEveryDay"]
-published: false
+published: true
 ---
 
 WriteCodeEveryDayを始めてから500日が立ったので、感想と今後の抱負を残します。WriteCodeEveryDayを始めた経緯等については以下の記事を参照してください。
