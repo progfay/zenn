@@ -34,6 +34,8 @@ GitHub Contribution Streak (連続でcontributionのある日数) を数えて�
 
 [progfay/github-streaks: Check streak on GitHub from CLI](https://github.com/progfay/github-streaks)
 
+![carbon](https://storage.googleapis.com/zenn-user-upload/bvcorb8x4qifee0s4a1op9lzsdi3)
+
 ```sh
 npx @progfay/github-streaks [username]
 ```
