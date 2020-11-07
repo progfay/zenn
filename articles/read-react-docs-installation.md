@@ -15,3 +15,23 @@ Reactを触り始めた時は、[公式ドキュメント](https://reactjs.org/d
 - Version: 17.0.1
 - 原則として英語版と参考にする
 - 解釈が難しい場合には日本語版を参照する
+
+## [Getting Started](https://reactjs.org/docs/getting-started.html)
+
+冒頭に以下のように書かれていたのが気になりました。
+
+> React has been designed from the start for gradual adoption, and you can use as little or as much React as you need.
+
+段階的に導入していけるということですが、私は別ライブラリなどからReactへの移行を経験したことがありません。例えばjQueryで書かれたWebサイトをReactに移行したい場合などはどのようにして部分的に置換を進めていけばいいのでしょうか。
+
+[Integrating with Other Libraries](https://reactjs.org/docs/integrating-with-other-libraries.html)にはjQueryのライブラリをReactでWrapする例が書かれています。
+
+> Although React is commonly used at startup to load a single root React component into the DOM, ReactDOM.render() can also be called multiple times for independent parts of the UI which can be as small as a button, or as large as an app.
+
+とあるように、UIパーツごとに`ReactDOM.render()`を使って小さくReact Componentに置換できるということが主張したいのでしょう。
+
+以下の記事では、step by stepでの安全なReact移行について解説してあり、`render() { return null }`から入るのが面白かったです。
+
+[Migrating your front-end to React, step by step. — Xebia Blog](https://xebia.com/blog/migrating-to-react-step-by-step/)
+
+他にもこのようなテクニックを使った移行に関する知見がどこかにまとまっているなら、読んでみたいです。
