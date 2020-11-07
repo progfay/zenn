@@ -30,8 +30,6 @@ Reactを触り始めた時は、[公式ドキュメント](https://reactjs.org/d
 
 とあるように、UIパーツごとに`ReactDOM.render()`を使って小さくReact Componentに置換できるということが主張したいのでしょう。
 
-以下の記事では、step by stepでの安全なReact移行について解説してあり、`render() { return null }`から入るのが面白かったです。
+以下の記事では、step by stepでの安全なReact移行について解説してありました。
 
 [Migrating your front-end to React, step by step. — Xebia Blog](https://xebia.com/blog/migrating-to-react-step-by-step/)
-
-他にもこのようなテクニックを使った移行に関する知見がどこかにまとまっているなら、読んでみたいです。
