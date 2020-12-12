@@ -22,7 +22,7 @@ Reactを触り始めた時は、[公式ドキュメント](https://reactjs.org/d
 
 > React has been designed from the start for gradual adoption, and you can use as little or as much React as you need.
 
-段階的に導入していけるということですが、私は別ライブラリなどからReactへの移行を経験したことがありません。例えばjQueryで書かれたWebサイトをReactに移行したい場合などはどのようにして部分的に置換を進めていけばいいのでしょうか。
+段階的に導入していけるということですが、私は別ライブラリなどからReactへの移行を経験したことがありません。例えばjQueryで書かれたWebサイトをReactに移行したい場合はどのようにして部分的に置換を進めていけばいいのでしょうか。
 
 [Integrating with Other Libraries](https://reactjs.org/docs/integrating-with-other-libraries.html)にはjQueryのライブラリをReactでWrapする例が書かれています。
 
