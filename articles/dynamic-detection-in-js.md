@@ -2,7 +2,7 @@
 title: "Headless Chromeを使ってプロパティアクセスや関数の実行を動的検出する"
 emoji: "👀"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["JavaScript", "Chromium", "CDP", "同的検出"]
+topics: ["JavaScript", "Chromium", "CDP", "動的検出"]
 published: false
 ---
 
