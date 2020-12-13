@@ -36,7 +36,7 @@ CDPを使用している有名なプロジェクトとして、[Chrome DevTools]
 
 CDPの[`Page.addScriptToEvaluateOnNewDocument(source: string)`](https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-addScriptToEvaluateOnNewDocument)は引数に指定したJavaScriptのコードをドキュメントを読み込む前のタイミングで実行することができます。これを利用して、プロパティアクセスや関数の実行の際に任意の関数を実行させることが可能です。
 
-また、[`Runtime.consoleAPICalled`]はConsole APIが呼び出された際に発生するイベントです。今回は`console.log`を用いてプロパティアクセスや関数の実行を通知させるようにしました。
+また、[`Runtime.consoleAPICalled`](https://chromedevtools.github.io/devtools-protocol/tot/Runtime/#event-consoleAPICalled)は[Console API](https://developer.mozilla.org/ja/docs/Web/API/console)が呼び出された際に発生するイベントです。今回は`console.log`を用いてプロパティアクセスや関数の実行を通知させるようにしました。
 
 検出までの手順は以下の通りです。
 
