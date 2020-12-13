@@ -19,7 +19,7 @@ published: false
 
 [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/)(以下、CDP)はChromiumと相互的に通信する際に用いられるプロトコルです。
 Chromiumが処理しているNetworkやProfileなどの情報を取得したり、逆にChromiumに指定のウェブサイトを開かせたり任意のJavaScriptを実行させたりできます。
-例えば、[Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools)や[puppeteer/puppeteer](https://github.com/puppeteer/puppeteer)は内部的にCDPを使用しています。
+CDPを使用している有名なプロジェクトとして、[Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools)や[puppeteer/puppeteer](https://github.com/puppeteer/puppeteer)などがあります。
 
 ## 今回の目標
 
