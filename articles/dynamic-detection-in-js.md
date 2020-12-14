@@ -3,7 +3,7 @@ title: "Headless Chromeを使ってプロパティアクセスや関数の実行
 emoji: "👀"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["JavaScript", "Chromium", "CDP", "動的検出"]
-published: false
+published: true
 ---
 
 この記事は[Recruit Engineers Advent Calendar 2020](https://adventar.org/calendars/5166)の14日目の記事です。
