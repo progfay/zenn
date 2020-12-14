@@ -23,7 +23,7 @@ published: true
 
 `globalThis['eval']('document.write(navigator.userAgent)')`を[JavaScript Obfuscator Tool](https://obfuscator.io/)を使って難読化して読み込ませたウェブサイトを作成しました。
 
-[@codesandbox](https://codesandbox.io/s/obfuscated-code-zglgt?file=/src/index.js)
+@[codesandbox](https://codesandbox.io/s/obfuscated-code-zglgt?fontsize=14&hidenavigation=1&theme=dark)
 
 今回は、local環境でホストしたこのウェブサイトから以下の2つを動的に検出することを目的とします。
 
