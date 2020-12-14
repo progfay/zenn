@@ -17,9 +17,7 @@ published: false
 
 ## Chrome DevTools Protocol
 
-[Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/)(以下、CDP)はChromiumと相互的に通信するためのプロトコルです。
-Chromiumが処理しているNetworkやProfileなどの情報を取得したり、逆にChromiumに指定のウェブサイトを開かせたり任意のJavaScriptを実行させたりできます。
-CDPを使用している有名なプロジェクトとして、[Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools)や[puppeteer/puppeteer](https://github.com/puppeteer/puppeteer)などがあります。
+[Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/)(以下、CDP)はChromiumと相互的に通信するためのプロトコルです。 Chromiumが処理しているNetworkやProfileなどの情報を取得したり、逆にChromiumに指定のウェブサイトを開かせたり任意のJavaScriptを実行させたりできます。 CDPを使用している有名なプロジェクトとして、[Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools)や[puppeteer/puppeteer](https://github.com/puppeteer/puppeteer)などがあります。
 
 ## 今回の目標
 
@@ -152,6 +150,6 @@ https://github.com/progfay/eval-detector
 
 ### 終わりに
 
-プロパティアクセスや関数の実行を動的検出する方法について解説しました。実際に実装してみた感想として、CDPは意外と簡単に取り扱えて幅広く活用できそうだと感じました。もっと簡単な検出方法があれば、コメント等で教えていただけると幸いです。
+プロパティアクセスや関数の実行を動的検出する方法について解説しました。実際にCDPを使ってみた感想として、簡単に取り扱えて幅広く活用できそうだと感じました。もっと簡単な検出方法やCDPで検出したいテーマがあれば、コメント等で教えていただけると幸いです。
 
 今後もCDPを使って色々遊んでみたいと思います！
