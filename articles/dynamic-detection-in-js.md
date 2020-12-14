@@ -27,7 +27,7 @@ CDPを使用している有名なプロジェクトとして、[Chrome DevTools]
 
 [@codesandbox](https://codesandbox.io/s/obfuscated-code-zglgt?file=/src/index.js)
 
-今回は、このウェブサイトから以下の2つを動的に検出することを目的とします。
+今回は、local環境でホストしたこのウェブサイトから以下の2つを動的に検出することを目的とします。
 
 1. `navigator.userAgent`へのアクセスを検出する
 2. `eval`の呼び出しを検出する (引数の値も取得する)
