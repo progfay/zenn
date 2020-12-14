@@ -40,7 +40,7 @@ CDPの[`Page.addScriptToEvaluateOnNewDocument(source: string)`](https://chromede
 
 検出までの手順は以下の通りです。
 
-1. `Page.addScriptToEvaluateOnNewDocument`でChromium側でプロパティアクセスや関数の実行時に`console.log`を実行するようにする
+1. `Page.addScriptToEvaluateOnNewDocument`を用いて、Chromium側でのプロパティアクセスや関数の実行時に`console.log`を実行するように細工する
 2. `Page.navigate`を用いて、Chromiumで対象のウェブサイトを開く
 3. Chromium側でプロパティアクセスや関数の実行が行われ、対応する`console.log`が実行される
 4. CDPを通して`Runtime.consoleAPICalled`イベントが発生し、検出に至る
