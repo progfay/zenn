@@ -23,15 +23,15 @@
   },
   "homepage": "https://github.com/progfay/zenn#readme",
   "devDependencies": {
-    "markdownlint-cli": "^0.24.0",
+    "markdownlint-cli": "^0.26.0",
     "npm-run-all": "^4.1.5",
-    "textlint": "^11.7.6",
+    "textlint": "^11.7.7",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-preset-ja-spacing": "^2.0.2",
     "textlint-rule-preset-ja-technical-writing": "^4.0.1",
     "textlint-rule-spellcheck-tech-word": "^5.0.0"
   },
   "dependencies": {
-    "zenn-cli": "^0.1.53"
+    "zenn-cli": "^0.1.66"
   }
 }
