@@ -3,7 +3,7 @@ title: ":visited selector に対するスタイリングは一部制限されて
 emoji: "🖇️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["privacy", "CSS", "visited"]
-published: false
+published: true
 ---
 
 :::message
