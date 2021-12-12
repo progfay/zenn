@@ -6,7 +6,9 @@ topics: ["privacy", "CSS", "visited"]
 published: false
 ---
 
-## Outline
+:::message
+本記事は「[Recruit Engineers Advent Calendar 2021](https://adventar.org/calendars/6663)」 13 日目の記事です。
+:::
 
 ## ある日の会議にて
 
