@@ -17,7 +17,7 @@ published: true
 以下の CodeSandbox は状況を簡略化したものです。
 一度 Link を踏んでから Link の style を確認してみてください。
 
-@[codesandbox](https://codesandbox.io/s/visited-selector-styling-nk6x4?file=/index.html)
+@[codesandbox](https://codesandbox.io/embed/visited-selector-styling-nk6x4?fontsize=14&theme=dark)
 
 `:visited` selector への `color` に半透明な赤色を指定しているのにも関わらず、実際に表示されている `<a>` は不透明な赤色となっています。
 
