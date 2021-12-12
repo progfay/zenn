@@ -25,7 +25,7 @@ published: true
 
 なぜ透明度が無視されてしまうのかの具体的な原因はわかりませんでしたが、透明度を利用した攻撃があることを記事で読んだことがありました。
 
-<https://blog.mozilla.org/attack-and-defense/2021/01/11/leaking-silhouettes-of-cross-origin-images/>
+https://blog.mozilla.org/attack-and-defense/2021/01/11/leaking-silhouettes-of-cross-origin-images/
 
 この記事の中では、 Cross-Origin から持ってきた画像の上に半透明な pixel を置いた際の描画のパフォーマンスから、画像の pixel 情報を抜き出す脆弱性 ([CVE-2020-16012](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16012)) について説明しています。
 
