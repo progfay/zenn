@@ -23,8 +23,12 @@ https://developer.mozilla.org/en-US/docs/Web/API/Document/domain#setter
 
 > The setter for this property can be used to change a page's origin, and thus modify how certain security checks are performed. It can only be set to the same or a parent domain.
 
-どうやら `document.domain` を変更することで Same-Origin Policy を緩和できるようです。
-セットできる値は同一ドメインか親ドメインに限られています。
+`document.domain` を変更することで Same-Origin Policy を緩和できます。
+
+`document.domain` にセットできる値はサイト自体の domain から eTLD + 1[^1] までの親 domain までです。
+例えば `a.b.example.com` の `document.domain` にセットできる値は、 `'a.b.example.com'`, `'b.example.com'`, `'example.com'` となります。
+
+[^1]: [Public Suffix List](https://publicsuffix.org/list/) で管理されている eTLD の一つ下の階層のこと
 
 緩和の詳細については HTML Standard に記載がありました。
 
