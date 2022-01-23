@@ -6,14 +6,14 @@ topics: ["Browser", "Origin Isolation"]
 published: false
 ---
 
-`document.domain` を immutable にすることが計画されています。
+[`document.domain`](https://developer.mozilla.org/en-US/docs/Web/API/Document/domain) は `Document` の Origin から domain の部分を参照できる property です。
+この値を書き換えることで [Same-Origin Policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) を緩和することができますが、この機能は非推奨となっています。
+
+そして、この機能はセキュリティや Origin Isolation の問題から廃止されることが計画されています。
 
 https://groups.google.com/a/chromium.org/g/blink-dev/c/_oRc19PjpFo/
 
-Chrome 98 から Chrome DevTools で warning が表示されるようになり、 Chrome 101 からはデフォルトで `document.domain` が変更できないようになる予定です。
-
-`document.domain` の値を変更することで何が起きているのかを知らない方もいらっしゃるでしょう。
-本記事では、 `document.domain` が immutable になる理由について調査しまとめていきます。
+本記事では、 `document.domain` の書き換えができなくなる理由についてまとめます。
 
 ## `document.domain` Setter
 
@@ -77,6 +77,10 @@ Same-Origin Policy が緩められるというのは Security 的に問題があ
 ## 代替案
 
 上記の理由から `document.domain` setter は廃止されることになりました。
+Chrome 101 からはデフォルトで `document.domain` が変更できないようになる予定です。
+
+https://chromestatus.com/feature/5428079583297536
+
 `document.domain` setter を置き換えるために 2 つの手法が用意されています。
 
 1. [`window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage), [Channel Messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API) を利用する
