@@ -34,7 +34,7 @@ https://html.spec.whatwg.org/multipage/origin.html#relaxing-the-same-origin-rest
 
 サブドメインを外すことで Top-Level と iframe 間での DOM へのアクセスが可能となります。
 
-![illustration](https://i.gyazo.com/4cc37dd7dab630f885aa98e1d36934d7.png)
+![illustration](https://storage.googleapis.com/zenn-user-upload/b94912833e5f-20220123.png)
 
 ## なぜ immutable になるのか？
 
