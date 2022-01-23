@@ -9,7 +9,7 @@ published: false
 [`document.domain`](https://developer.mozilla.org/en-US/docs/Web/API/Document/domain) は `Document` の Origin から domain の部分を参照できる property です。
 この値を書き換えることで [Same-Origin Policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) を緩和することができますが、この機能は非推奨となっています。
 
-そして、この機能はセキュリティや Origin Isolation の問題から廃止されることが計画されています。
+そして、この機能はセキュリティや Origin Isolation の問題から利用できなくなることが計画されています。
 
 https://groups.google.com/a/chromium.org/g/blink-dev/c/_oRc19PjpFo/
 
@@ -36,9 +36,9 @@ https://html.spec.whatwg.org/multipage/origin.html#relaxing-the-same-origin-rest
 
 ![illustration](https://storage.googleapis.com/zenn-user-upload/b94912833e5f-20220123.png)
 
-## なぜ immutable になるのか？
+## なぜ書き換えができなくなるのか？
 
-`document.domain` setter の利用が廃止となる理由は大きく分けて 2 つあります。
+`document.domain` setter の利用ができなくなる理由は大きく分けて 2 つあります。
 
 ### Same-Origin Policy についての問題
 
@@ -76,7 +76,7 @@ Same-Origin Policy が緩められるというのは Security 的に問題があ
 
 ## 代替案
 
-上記の理由から `document.domain` setter は廃止されることになりました。
+上記の理由から `document.domain` setter は利用できなくなることになりました。
 Chrome 101 からはデフォルトで `document.domain` が変更できないようになる予定です。
 
 https://chromestatus.com/feature/5428079583297536
