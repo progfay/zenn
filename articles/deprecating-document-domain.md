@@ -15,9 +15,9 @@ https://groups.google.com/a/chromium.org/g/blink-dev/c/_oRc19PjpFo/
 
 本記事では、 `document.domain` の書き換えができなくなる理由についてまとめます。
 
-## `document.domain` Setter
+## `document.domain` setter
 
-`document.domain` Setter の MDN を参照してみましょう。
+`document.domain` setter の MDN を参照してみましょう。
 
 https://developer.mozilla.org/en-US/docs/Web/API/Document/domain#setter
 
@@ -55,7 +55,7 @@ Same-Origin Policy が緩められるというのは Security 的に問題があ
 
 ### Origin Isolation についての問題
 
-`document.domain` Setter による挙動を実現するために、同一 Tab 上の Same-Site の frame (Top-Level, `<iframe>` など) は同一 process 上に配置されます。
+`document.domain` setter による挙動を実現するために、同一 Tab 上の Same-Site の frame (Top-Level, `<iframe>` など) は同一 process 上に配置されます。
 
 > Within a single browser tab, frames from different sites are always in different render processes from each other, but frames from the same site are always in the same render process.
 >
