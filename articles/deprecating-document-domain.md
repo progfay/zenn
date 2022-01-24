@@ -9,7 +9,7 @@ published: false
 [`document.domain`](https://developer.mozilla.org/en-US/docs/Web/API/Document/domain) は `Document` の Origin から domain の部分を参照できる property です。
 この値を書き換えることで [Same-Origin Policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) を緩和することができますが、この機能は非推奨となっています。
 
-そして、この機能はセキュリティや Origin Isolation の問題から利用できなくなることが計画されています。
+そして、この機能はセキュリティや [Cross-Origin Isolation](https://web.dev/cross-origin-isolation-guide/) の問題から利用できなくなることが計画されています。
 
 https://groups.google.com/a/chromium.org/g/blink-dev/c/_oRc19PjpFo/
 
@@ -57,7 +57,7 @@ Same-Origin Policy が緩められるというのは Security 的に問題があ
 
 これにより異なる subdomain を持つサイトから DOM に対する read / write が可能となってしまいます。
 
-### Origin Isolation についての問題
+### Cross-Origin Isolation についての問題
 
 `document.domain` setter による挙動を実現するために、同一 Tab 上の Same-Site の frame (Top-Level, `<iframe>` など) は同一 process 上に配置されます。
 
@@ -76,7 +76,7 @@ Same-Origin Policy が緩められるというのは Security 的に問題があ
 >
 > [Deprecate the `document.domain` setter. - Chrome Platform Status](https://chromestatus.com/feature/5428079583297536) より引用
 
-そこで `document.domain` setter の利用を非推奨とすることで Origin Isolation を推し進められるようになります。
+そこで `document.domain` setter の利用を非推奨とすることで Cross-Origin Isolation を推し進められるようになります。
 
 ## 代替案
 
