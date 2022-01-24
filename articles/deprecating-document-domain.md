@@ -2,7 +2,7 @@
 title: "Deprecating document.domain setter"
 emoji: "🚷"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["Browser", "Origin Isolation"]
+topics: ["Browser"]
 published: false
 ---
 
@@ -85,9 +85,40 @@ Chrome 101 からはデフォルトで `document.domain` が変更できない�
 
 https://chromestatus.com/feature/5428079583297536
 
-`document.domain` setter を置き換えるために 2 つの手法が用意されています。
+### `postMessage()` と Channel Message API
 
-1. [`window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage), [Channel Messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API) を利用する
-2. [`Origin-Agent-Cluster: ?0`](https://web.dev/origin-agent-cluster/) Header を利用する
+`document.domain` setter を置き換える方法として、 [`window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) か [Channel Messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API) があります。
+これらの API を使うことで Cross-Origin 間の通信を実現することができます。
 
-詳しくは [Chrome will disable modifying `document.domain` to relax the same-origin policy - Chrome Developers](https://developer.chrome.com/blog/immutable-document-domain/) にて詳しく説明されていますので、そちらを参照してください。
+詳しい使い方については以下のサイトにて説明されています。
+
+https://developer.chrome.com/blog/immutable-document-domain/#use-postmessage-or-channel-messaging-api
+
+### `Origin-Agent-Cluster` Header
+
+何らかの理由で `document.domain` setter の利用を続けたいケースがあるかもしれません。
+その場合は [`Origin-Agent-Cluster`](https://html.spec.whatwg.org/multipage/origin.html#origin-keyed-agent-clusters) Header を使うことで引き続き `document.domain` の書き換えが可能になります。
+
+`Origin-Agent-Cluster` Header を用いることで、対象の `Document` を同じ Origin を持つ他の `Document` と同じ process 上で処理するか否かを判断するためのヒントを与えることができます。
+これは特に subdomain だけが異なるような Cross-Origin な `Document` の Isolation に役立ちます。
+
+> The new Origin-Agent-Cluster header asks the browser to change this default behavior for a given page, putting it into an origin-keyed agent cluster, so that it is grouped only with other pages that have the exact same origin. In particular, same-site cross-origin pages will be excluded from the agent cluster.
+>
+> [Requesting performance isolation with the Origin-Agent-Cluster header](https://web.dev/origin-agent-cluster/#why-browsers-can't-automatically-segregate-same-site-origins) より引用
+
+`Origin-Agent-Cluster` Header の値には [Structured Field Value](https://datatracker.ietf.org/doc/html/rfc8941) の boolean 値が設定できます。
+`?1` で `true` を、 `?0` で `false` を示します。
+
+> A Boolean is indicated with a leading "?" character followed by a "1" for a true value or "0" for false.
+>
+> [RFC 8941 - Structured Field Values for HTTP](https://datatracker.ietf.org/doc/html/rfc8941#section-3.3.6) より引用
+
+Chrome による `document.domain` setter を廃止するにあたって、後方互換性を維持するために `Origin-Agent-Cluster: ?0` を明示的に送信することで `document.domain` setter を引き続き利用できるようにしています。
+
+> We should deprecate it, by making it opt-in via `Origin-keyed agent clusters` (https://chromestatus.com/features/5683766104162304)
+>
+> The setter will remain, but the origin remains unchanged. In that case the compatibility risk is low.
+>
+> [Feature: Deprecate the `document.domain` setter.](https://chromestatus.com/feature/5428079583297536) より引用
+
+しかしながら `document.domain` setter の利用は前述のようなセキュリティ的懸念があるため、何らかの強い理由がない限りは移行を検討するべきでしょう。
