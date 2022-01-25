@@ -3,7 +3,7 @@ title: "Deprecating document.domain setter"
 emoji: "🚷"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Browser"]
-published: false
+published: true
 ---
 
 [`document.domain`](https://developer.mozilla.org/en-US/docs/Web/API/Document/domain) は `Document` の Origin から domain の部分を参照できる property です。
