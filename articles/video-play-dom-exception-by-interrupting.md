@@ -2,8 +2,8 @@
 
 ## TL; DR
 
-`HTMLVideoElement.prototype.play()` による動画読み込み中に `HTMLVideoElement.prototype.pause()` を呼ぶと `DOMException` が発生する。
-この原因の調査が難航した場合には、 `prototype` を wrap してログを埋め込むような動的解析をすると特定の一助になるかもしれない。
+`HTMLVideoElement.prototype.play()` による動画読み込み中に `HTMLVideoElement.prototype.pause()` を呼ぶと `DOMException` が発生します。
+この原因の調査が難航した場合には、 `prototype` を wrap してログを埋め込むような動的解析をすると特定の一助になるかもしれません。
 
 ## DOMException: The play() request was interrupted by a call to pause()
 
