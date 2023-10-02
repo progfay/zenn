@@ -1,5 +1,10 @@
 # `HTMLVideoElement` の "DOMException: The play() request was interrupted by a call to pause()" の原因を調査する
 
+## TL; DR
+
+`HTMLVideoElement.prototype.play()` による動画読み込み中に `HTMLVideoElement.prototype.pause()` を呼ぶと `DOMException` が発生する。
+この原因の調査が難航した場合には、 `prototype` を wrap してログを埋め込むような動的解析をすると特定の一助になるかもしれない。
+
 ## DOMException: The play() request was interrupted by a call to pause()
 
 [`HTMLVideoElement.prototype.play`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) は `<video>` tag の再生を開始する関数です。
