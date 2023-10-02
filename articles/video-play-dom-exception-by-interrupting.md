@@ -7,7 +7,7 @@
 
 ## DOMException: The play() request was interrupted by a call to pause()
 
-[`HTMLVideoElement.prototype.play`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) は `<video>` tag の再生を開始する関数です。
+[`HTMLVideoElement.prototype.play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) は `<video>` tag の再生を開始する関数です。
 `HTMLVideoElement.prototype.play()` は呼ばれるとまず動画の読み込みを開始し、それが終わり次第再生を行います。
 この関数は返り値として、読み込みが終わり次第 resolve される `Promise<void>` を返します。
 
