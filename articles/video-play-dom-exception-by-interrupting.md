@@ -7,9 +7,9 @@
 
 ## `DOMException` との遭遇
 
-僕が開発に携わっていたアプリケーションでは [`<video>` tag](https://developer.mozilla.org/docs/Web/HTML/Element/video) の再生 / 停止処理を JavaScript から行っていました。
+私は以前、 JavaScript から [`<video>` tag](https://developer.mozilla.org/docs/Web/HTML/Element/video) の再生 / 停止処理を行うアプリケーションの開発に携わっていました。
 
-そんな中、以下のエラーが発生することで動画が再生できないような事象が発生しました。
+そんな中、以下のエラーによって動画が再生できない問題が発生しました。
 
 > _Uncaught (in promise) DOMException: The play() request was interrupted by a call to pause().
 
@@ -19,7 +19,7 @@
 `HTMLVideoElement.prototype.play()` は呼ばれるとまず動画の読み込みを開始し、それが終わり次第再生を行います。
 この関数は返り値として、読み込みが終わり次第 resolve される `Promise<void>` を返します。
 
-しかし、読み込みの途中で同一インスタンスの [`HTMLVideoElement.prototype.pause()`](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/pause) が呼ばれると、この `Promise<void>` は reject され、 [`DOMException`](https://developer.mozilla.org/docs/Web/API/DOMException) を発生させます。
+しかし、読み込みの途中で同一インスタンスの [`HTMLVideoElement.prototype.pause()`](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/pause) が呼ばれると、この `Promise<void>` は reject され、 [`DOMException`](https://developer.mozilla.org/docs/Web/API/DOMException) が throw されます。
 
 > 1. `video.play()` starts loading video content asynchronously.
 > 2. `video.pause()` interrupts video loading because it is not ready yet.
@@ -31,7 +31,7 @@
 
 仕様や実装によっては一つの `<video>` tag に対して様々なタイミングで `play()` や `pause()` を呼ぶこともあり得るかと思います。
 
-実際に僕が開発に携わっていたアプリケーションでは `play()` / `pause()` が至る所から呼ばれており、まるでスパゲッティコードのようになっていました。
+実際に私が開発に携わっていたアプリケーションでは `play()` / `pause()` が至る所から呼ばれており、まるでスパゲッティコードのようになっていました。
 さらに、動画再生 library として使用している [`bitmovin-player` package](https://www.npmjs.com/package/bitmovin-player) では build 前のコードが公開されていませんでした。
 [build 後のコード](https://unpkg.com/bitmovin-player@8.134.0/bitmovinplayer.js) はとてもじゃないですが読めたものではありません。
 
@@ -83,7 +83,7 @@ HTMLVideoElement.prototype.play = function (...args) {
 
 stack trace が出すぎると読みづらいため、 `video.play('timing 1')` のように記述すると stack trace の代わりに `'timing 1'` が log に出るようにしました。
 
-この動的解析によって、実際に 2 つの `DOMException` の原因を突き止めて修正することができました！
+この動的解析により 2 つの `DOMException` の原因を特定、問題を修正することができました！
 
 ## この動的解析手法は他にも応用できる
 
