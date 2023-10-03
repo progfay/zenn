@@ -1,5 +1,5 @@
 ---
-title: "\"DOMException: The play() request was interrupted by a call to pause()\" の原因を調査する"
+title: "\"DOMException: The play() request was interrupted\"の原因を調査する"
 emoji: "▶︎"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Browser", "video", "DOMException", "動的解析"]
