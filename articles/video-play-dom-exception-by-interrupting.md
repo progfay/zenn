@@ -8,7 +8,7 @@ published: true
 
 ## TL; DR
 
-`HTMLVideoElement.prototype.play()` による動画読み込み中に `HTMLVideoElement.prototype.pause()` を呼ぶと `DOMException` が発生します。
+`HTMLVideoElement.play()` による動画読み込み中に `HTMLVideoElement.prototype.pause()` を呼ぶと `DOMException` が発生します。
 この原因の調査が難航したときには、 `prototype` を wrap して log を埋め込むような動的解析をすると特定の一助になるかもしれません。
 
 ## `DOMException` との遭遇
@@ -26,6 +26,8 @@ published: true
 この関数は返り値として、読み込みが終わり次第 resolve される `Promise<void>` を返します。
 
 しかし、読み込みの途中で同一インスタンスの [`HTMLVideoElement.prototype.pause()`](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/pause) が呼ばれると、この `Promise<void>` は reject され、 [`DOMException`](https://developer.mozilla.org/docs/Web/API/DOMException) が throw されます。
+
+![`video.play()` は loading が終われば resolve されるが、その前に `video.pause()` が呼ばれると reject される。](https://storage.googleapis.com/zenn-user-upload/af9f0652616c-20231003.png)
 
 > 1. `video.play()` starts loading video content asynchronously.
 > 2. `video.pause()` interrupts video loading because it is not ready yet.
