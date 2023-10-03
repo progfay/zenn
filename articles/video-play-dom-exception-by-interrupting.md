@@ -5,38 +5,46 @@
 `HTMLVideoElement.prototype.play()` による動画読み込み中に `HTMLVideoElement.prototype.pause()` を呼ぶと `DOMException` が発生します。
 この原因の調査が難航したときには、 `prototype` を wrap して log を埋め込むような動的解析をすると特定の一助になるかもしれません。
 
+## `DOMException` との遭遇
+
+僕が開発に携わっていたアプリケーションでは [`<video>` tag](https://developer.mozilla.org/docs/Web/HTML/Element/video) の再生 / 停止処理を JavaScript から行っていました。
+
+そんな中、以下のエラーが発生することで動画が再生できないような事象が発生しました。
+
+> _Uncaught (in promise) DOMException: The play() request was interrupted by a call to pause().
+
 ## DOMException: The play() request was interrupted by a call to pause()
 
-[`HTMLVideoElement.prototype.play()`](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/play) は [`<video>` tag](https://developer.mozilla.org/docs/Web/HTML/Element/video) の再生を開始する関数です。
+[`HTMLVideoElement.prototype.play()`](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/play) は `<video>` tag の再生を開始する関数です。
 `HTMLVideoElement.prototype.play()` は呼ばれるとまず動画の読み込みを開始し、それが終わり次第再生を行います。
 この関数は返り値として、読み込みが終わり次第 resolve される `Promise<void>` を返します。
 
 しかし、読み込みの途中で同一インスタンスの [`HTMLVideoElement.prototype.pause()`](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/pause) が呼ばれると、この `Promise<void>` は reject され、 [`DOMException`](https://developer.mozilla.org/docs/Web/API/DOMException) を発生させます。
-エラーメッセージは以下の通りです。
 
-> _Uncaught (in promise) DOMException: The play() request was interrupted by a call to pause().
-
-ref. [DOMException - The play() request was interrupted - Chrome for Developers](https://developer.chrome.com/blog/play-request-was-interrupted/#what-is-causing-this)
+> 1. `video.play()` starts loading video content asynchronously.
+> 2. `video.pause()` interrupts video loading because it is not ready yet.
+> 3. `video.play()` rejects asynchronously loudly.
+>
+> [DOMException - The play() request was interrupted - Chrome for Developers](https://developer.chrome.com/blog/play-request-was-interrupted/#what-is-causing-this) より引用
 
 ## `play()` / `pause()` のスパゲッティ
 
 仕様や実装によっては一つの `<video>` tag に対して様々なタイミングで `play()` や `pause()` を呼ぶこともあり得るかと思います。
 
-実際に僕が開発に携わっていたアプリケーション上では `play()` / `pause()` が至る所から呼ばれており、まるでスパゲッティコードのようになっていました。
-そんな中、 `DOMException` が発生してしまいました。
-
-さらに、動画再生 library として使用している [`bitmovin-player` package](https://www.npmjs.com/package/bitmovin-player) は build 前のコードが公開されていません。
+実際に僕が開発に携わっていたアプリケーションでは `play()` / `pause()` が至る所から呼ばれており、まるでスパゲッティコードのようになっていました。
+さらに、動画再生 library として使用している [`bitmovin-player` package](https://www.npmjs.com/package/bitmovin-player) では build 前のコードが公開されていませんでした。
 [build 後のコード](https://unpkg.com/bitmovin-player@8.134.0/bitmovinplayer.js) はとてもじゃないですが読めたものではありません。
 
 しかし、仮に使用している library が build 前のコードを公開していたとしても、それを読んで原因を調査するのは骨が折れる作業です。
 
 ## 動的解析を試してみる
 
-`play()` や `pause()` がスパゲッティのようになっていても、 `bitmovin-player` のような動画再生のための library を使用していてもエラーの原因は突き止めたいです。
+コードを読んで挙動を把握する静的解析は、以下の 2 点から原因の調査が難しそうです。
 
-しかし、コードを読んで挙動を把握する静的解析では原因の調査は難しそうでした。
+1. `play()` や `pause()` が様々なタイミングで呼ばれる
+2. 動画再生 library の `bitmovin-player` が build 前のコードを公開していない
 
-そこで、コードを動かして挙動を把握する動的解析に挑戦してみます。
+そこで、コードを動かして挙動を把握する動的解析に挑戦してみました。
 
 前述の `DOMException` には `HTMLElement.prototype.play` と `HTMLElement.prototype.pause` が関係しています。
 この 2 つのメソッドがどのような経緯で呼ばれて、どのタイミングでエラーとなるのかを log として出せれば解析の一助になりそうです。
