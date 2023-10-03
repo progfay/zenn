@@ -7,11 +7,11 @@
 
 ## DOMException: The play() request was interrupted by a call to pause()
 
-[`HTMLVideoElement.prototype.play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) は `<video>` tag の再生を開始する関数です。
+[`HTMLVideoElement.prototype.play()`](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/play) は [`<video>` tag](https://developer.mozilla.org/docs/Web/HTML/Element/video) の再生を開始する関数です。
 `HTMLVideoElement.prototype.play()` は呼ばれるとまず動画の読み込みを開始し、それが終わり次第再生を行います。
 この関数は返り値として、読み込みが終わり次第 resolve される `Promise<void>` を返します。
 
-しかし、読み込みの途中で同一インスタンスの `HTMLVideoElement.prototype.pause()` が呼ばれると、この `Promise<void>` は reject され、 `DOMException` を発生させます。
+しかし、読み込みの途中で同一インスタンスの [`HTMLVideoElement.prototype.pause()`](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/pause) が呼ばれると、この `Promise<void>` は reject され、 [`DOMException`](https://developer.mozilla.org/docs/Web/API/DOMException) を発生させます。
 エラーメッセージは以下の通りです。
 
 > _Uncaught (in promise) DOMException: The play() request was interrupted by a call to pause().
