@@ -32,10 +32,11 @@
 仕様や実装によっては一つの `<video>` tag に対して様々なタイミングで `play()` や `pause()` を呼ぶこともあり得るかと思います。
 
 実際に私が開発に携わっていたアプリケーションでは `play()` / `pause()` が至る所から呼ばれており、まるでスパゲッティコードのようになっていました。
-さらに、動画再生 library として使用している [`bitmovin-player` package](https://www.npmjs.com/package/bitmovin-player) では build 前のコードが公開されていませんでした。
-[build 後のコード](https://unpkg.com/bitmovin-player@8.134.0/bitmovinplayer.js) はとてもじゃないですが読めたものではありません。
 
-しかし、仮に使用している library が build 前のコードを公開していたとしても、それを読んで原因を調査するのは骨が折れる作業です。
+さらに、動画再生 library として使用している [`bitmovin-player` package](https://www.npmjs.com/package/bitmovin-player) では build 前のコードが公開されていませんでした。
+[build 後のコード](https://unpkg.com/bitmovin-player@8.134.0/bitmovinplayer.js) を読んで処理を理解するのは非常に難易度が高いです。
+
+しかし、仮に使用している library が build 前のコードを公開していたとしても、それを読んで原因を調査するのは骨が折れます。
 
 ## 動的解析を試してみる
 
