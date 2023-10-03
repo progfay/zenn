@@ -67,10 +67,15 @@ HTMLVideoElement.prototype.play = function (...args) {
 }
 ```
 
-これにより、 `play()` や `pause()` が呼ばれたタイミングと `play()` が reject されたタイミングを log として stack trace と共に出力してくれます。
-また stack trace が出すぎると読みづらいため、 `video.play('timing 1')` のように記述すると stack trace の代わりに `'timing 1'` が log に出るようにしました。
+このコードでは [`HTMLVideoElement`](https://developer.mozilla.org/docs/Web/API/HTMLVideoElement) の [`prototype`](https://developer.mozilla.org/docs/Glossary/Prototype) に生えた `play()` と `pause()` を wrap しています。
+`play()` や `pause()` が呼ばれたタイミングで stack trace を出力し、元の処理を実行します。
+また、 `play()` が reject されたタイミングでも stack trace を出力しています。
 
-実際に調査したときのログは残念ながら公開できませんが、この動的解析によって 2 つの `DOMException` の原因を突き止めて修正することができました。
+複数動画がある場合はどの `<video>` tag に対する操作かが分かりづらいため、 [`this.src`](https://developer.mozilla.org/docs/Web/HTML/Element/video#src) を log に出しています。
+
+stack trace が出すぎると読みづらいため、 `video.play('timing 1')` のように記述すると stack trace の代わりに `'timing 1'` が log に出るようにしました。
+
+この動的解析によって、実際に 2 つの `DOMException` の原因を突き止めて修正することができました！
 
 ## この動的解析手法は他にも応用できる
 
