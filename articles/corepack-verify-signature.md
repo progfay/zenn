@@ -39,7 +39,7 @@ https://github.com/nodejs/corepack/blob/v0.30.0/sources/npmRegistryUtils.ts#L35
 
 ## 1. package の情報から signature を取得する
 
-`https://registry.npmjs.org/${PACKAGE_NAME}/${VERSION}` の `dist` field から情報を取得します。
+Corepack は `https://registry.npmjs.org/${PACKAGE_NAME}/${VERSION}` の `dist` field から情報を取得します。
 ここでは `pnpm@10.1.0` を例に挙げてみましょう (一部抜粋):
 
 ```json
@@ -114,10 +114,10 @@ Corepack は npm の Public signing keys を local に持っています。
 
 これを見るに Corepack は古い key ID のみを保持しており、 `pnpm@10.1.0` は新しい key で署名されていることがわかります。
 
-| Package           | Key ID                                               |     |
-| ----------------- | ---------------------------------------------------- | --- |
-| `corepack@0.30.0` | `SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA` | Old |
-| `pnpm@10.1.0`     | `SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U` | New |
+| Package           | Key ID                                               |        |
+| ----------------- | ---------------------------------------------------- | ------ |
+| `corepack@0.30.0` | `SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA` | OLD 🗝️ |
+| `pnpm@10.1.0`     | `SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U` | NEW 🔑 |
 
 ### 3. 署名の検証を行う
 
