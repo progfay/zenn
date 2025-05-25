@@ -175,7 +175,7 @@ https://speakerdeck.com/majimaccho/result-xing-zi-qian-deshu-kuka-raiburarishi-u
 https://slides.buddha0818.workers.dev/tskaigi2025
 
 ## Standard Schema: スキーマライブラリの統一規格とは何か
-NOT_FOUND
+https://speakerdeck.com/nozomuikuta/standard-schema-sukimaraiburarinotong-qi-hua-tohahe-ka
 
 ## 令和最新版TypeScriptでのnpmパッケージ開発
 NOT_FOUND
