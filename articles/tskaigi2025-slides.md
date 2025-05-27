@@ -49,7 +49,7 @@ https://docs.google.com/presentation/d/1rzznSwA7da7S_lU6qyAFuCN9IC1uDJe44PvDg-uq
 https://speakerdeck.com/yuisakamoto/typescript-enziniaga-android-kai-fa-noshi-jie-nifei-biip-ndahua
 
 ## fast-checkとneverthrowのPBT+Result型で堅牢なビジネスロジックを実現する
-NOT_FOUND
+https://speakerdeck.com/globeingoctagon/fast-checktoneverthrownopbt-plus-resultxing-de-jian-lao-nabizinesurozitukuwoshi-xian-suru
 
 ## AI Coding Agent Enablement in TypeScript
 https://speakerdeck.com/yukukotani/ai-coding-agents-enablement-in-typescript
@@ -142,7 +142,7 @@ https://speakerdeck.com/susisu/tskaigi-2025
 https://speakerdeck.com/tasshi/tskaigi-2025-web-streams-api
 
 ## Pragmatic Functional Programming in TypeScript
-NOT_FOUND
+https://decks.yasaichi.com/20250524/pragmatic-functional-programming-in-typescript
 
 ## ts-morphで、人間も編集できるコード生成を実現しよう！
 https://www.docswell.com/s/4136989/K7RPN6-2025-05-24-135029#p35
