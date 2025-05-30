@@ -214,7 +214,7 @@ NOT_FOUND
 https://speakerdeck.com/bengo4com/20250524-cloudsign-tskaigi2025
 
 ## 型推論の扉を開く―集合論と構造的型制約で理解する中級へのステップ
-NOT_FOUND
+https://speakerdeck.com/tochikawa/tskaigi2025-ji-he-lun-togou-zao-de-xing-zhi-yue-deli-jie-suruzhong-ji-henosutetupu
 
 ## 型がない世界に生まれ落ちて 〜TypeScript運用進化の歴史〜
 https://speakerdeck.com/narihara/xing-ganaishi-jie-nisheng-mareluo-tite-typescriptyun-yong-jin-hua-noli-shi-f1f7dcbb-460c-4615-a2cd-0b314fe17721
